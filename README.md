@@ -44,7 +44,8 @@ Before running the project, you'll need to set up your environment variables. Fo
    1. Navigate to the client folder of your project.
    2. Create a new file named .env in the client folder. 
    3. Open the .env file and add the following environment variable:
-      ```
+
+       ```
       REACT_APP_API=http://localhost:8080
       ```
    
