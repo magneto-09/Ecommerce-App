@@ -3,7 +3,7 @@
 
 # Ecommerce App
 
-Welcome to the Ecommerce App repository!
+Welcome to the E-commerce App repository!
 
 ## Cloning the Project
 
@@ -40,10 +40,10 @@ Before running the project, you'll need to set up your environment variables. Fo
 
    Replace `<your_MongoDB_connection_URI>` with your MongoDB connection URI,  `<your_Braintree_merchant_ID>`, `<your_Braintree_public_key>`, and `<your_Braintree_private_key>` with your Braintree credentials.
 
-3. Client Side Environment Variables
-   A. Navigate to the client folder of your project.
-   B. Create a new file named .env in the client folder. 
-   C. Open the .env file and add the following environment variable:
+3. Client-Side Environment Variables
+   1. Navigate to the client folder of your project.
+   2. Create a new file named .env in the client folder. 
+   3. Open the .env file and add the following environment variable:
       ```
       REACT_APP_API=http://localhost:8080
       ```
