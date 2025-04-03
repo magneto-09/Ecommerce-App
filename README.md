@@ -39,7 +39,7 @@ Before running the project, you'll need to set up your environment variables. Fo
    BRAINTREE_PRIVATE_KEY=<your_Braintree_private_key>
    ```
 
-   Replace `<your_MongoDB_connection_URI>` with your MongoDB connection URI,  `<your_Braintree_merchant_ID>`, `<your_Braintree_public_key>`, and `<your_Braintree_private_key>` with your Braintree credentials.
+   Replace `<your_MongoDB_connection_URI>` with your MongoDB connection URI, `<your_JWT_Secret>` with your JWT secret key,  `<your_Braintree_merchant_ID>`, `<your_Braintree_public_key>`, and `<your_Braintree_private_key>` with your Braintree credentials.
 
 3. Client-Side Environment Variables
    1. Navigate to the client folder of your project.
