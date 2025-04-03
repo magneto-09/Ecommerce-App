@@ -33,6 +33,7 @@ Before running the project, you'll need to set up your environment variables. Fo
    ```
    PORT=8080
    MONGODB_URI=<your_MongoDB_connection_URI>
+   JWT_SECRET=<your_JWT_Secret>
    BRAINTREE_MERCHANT_ID=<your_Braintree_merchant_ID>
    BRAINTREE_PUBLIC_KEY=<your_Braintree_public_key>
    BRAINTREE_PRIVATE_KEY=<your_Braintree_private_key>
