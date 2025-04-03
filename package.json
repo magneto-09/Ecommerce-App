@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
-  "author": "Piyush Sharma, Md. Mosharaf Hossain, Shubham Sharma, Suraj Mondal, Gautam Sarkar, Akash Choudhary",
+  "author": "Piyush Sharma",
   "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
