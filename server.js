@@ -8,14 +8,11 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
 
-//configure env
-dotenv.config();
 
-//databse config
-connectDB();
+dotenv.config(); // load environment variables. 
 
-//rest object
-const app = express();
+
+const app = express(); // app instance
 
 //middelwares
 app.use(cors());
@@ -32,13 +29,14 @@ app.get("/", (req, res) => {
   res.send("<h1>Welcome to the backend of ecommerce app</h1>");
 });
 
-//PORT
-const PORT = process.env.PORT || 8080;
 
-//run listen
-app.listen(PORT, () => {
-  console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgWhite
-      .black
-  );
-});
+connectDB().then(()=> {
+  console.log('Connected to MongoDB database'.bgMagenta.white); 
+
+  app.listen(process.env.PORT, ()=> {
+      console.log(`Server Running on ${process.env.DEV_MODE} mode on port ${process.env.PORT}`.bgWhite
+      .black)
+  })
+})
+.catch((e)=>console.log(`Error while connecting:- ${JSON.stringify(e)}`.bgRed.yellow))
+

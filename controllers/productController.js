@@ -62,7 +62,7 @@ export const createProductController = async (req, res) => {
 };
 
 //get all products
-export const getProductController = async (req, res) => {
+export const getProductController = async (_, res) => {
   try {
     const products = await productModel
       .find({})
@@ -328,7 +328,7 @@ export const productCategoryController = async (req, res) => {
 
 //payment gateway api
 //token
-export const braintreeTokenController = async (req, res) => {
+export const braintreeTokenController = (_, res) => {
   try {
     gateway.clientToken.generate({}, function (err, response) {
       if (err) {
@@ -343,14 +343,15 @@ export const braintreeTokenController = async (req, res) => {
 };
 
 //payment
-export const brainTreePaymentController = async (req, res) => {
+export const brainTreePaymentController = (req, res) => {
   try {
     const { nonce, cart } = req.body;
     let total = 0;
     cart.map((i) => {
       total += i.price;
     });
-    let newTransaction = gateway.transaction.sale(
+
+    gateway.transaction.sale(
       {
         amount: total,
         paymentMethodNonce: nonce,
@@ -358,13 +359,15 @@ export const brainTreePaymentController = async (req, res) => {
           submitForSettlement: true,
         },
       },
-      function (error, result) {
+      async (error, result) => {
         if (result) {
-          const order = new orderModel({
+          const orderObj = {
             products: cart,
             payment: result,
             buyer: req.user._id,
-          }).save();
+          }
+          const newOrder = new orderModel(orderObj);
+          await newOrder.save();
           res.json({ ok: true });
         } else {
           res.status(500).send(error);
